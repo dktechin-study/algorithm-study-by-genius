@@ -1,7 +1,17 @@
 package com.genius.binarySearchTree;
 
-/**
- * Created by Genius on 2017-01-24.
- */
 public class Node {
+
+	public int value;
+	public Node right;
+	public Node left;
+
+	public Node(int value) {
+		this.value = value;
+	}
+
+	@Override
+	public String toString() {
+		return String.valueOf(value);
+	}
 }

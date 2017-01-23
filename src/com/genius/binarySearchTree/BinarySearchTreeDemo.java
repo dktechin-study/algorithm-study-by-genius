@@ -1,46 +1,21 @@
 package com.genius.binarySearchTree;
 
-public class BinarySearhTree {
+public class BinarySearchTreeDemo {
 
-	private Node root;
+	public static void main(String[] args) {
+		BinarySearchTree binarySearchTree = new BinarySearchTree();
+		binarySearchTree.add(10);
+		binarySearchTree.add(15);
+		binarySearchTree.add(5);
+		binarySearchTree.add(2);
+		binarySearchTree.add(1);
+		binarySearchTree.add(11);
 
-	public void add(int value) {
-		Node temp = root;
-		Node node = new Node(value);
-		if (root == null) root = node;
-		while (temp != null) {
-			if (temp.value == value) return;
-			if (temp.value > value) {
-				if (temp.left == null) {
-					temp.left = node;
-				} else {
-					temp = temp.left;
-				}
-			} else {
-				if (temp.right == null) {
-					temp.right = node;
-				} else {
-					temp = temp.right;
-				}
-			}
-		}
-	}
-
-	public void delete(int value) {
-
-	}
-
-	public Node search(int value) {
-		Node temp = root;
-		while (temp != null) {
-			if (temp.value == value) return temp;
-			if (temp.value > value) {
-				temp = temp.left;
-			} else {
-				temp = temp.right;
-			}
-		}
-		return null;
+		System.out.println(binarySearchTree.search(5).left);
+		System.out.println(binarySearchTree.search(5).right);
+		System.out.println(binarySearchTree.search(10).left);
+		System.out.println(binarySearchTree.search(10).right);
+		System.out.println(binarySearchTree.search(15).left);
 	}
 }
 

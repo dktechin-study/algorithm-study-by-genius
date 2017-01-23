@@ -1,6 +1,6 @@
 package com.genius.binarySearchTree;
 
-public class BinarySearhTree {
+public class BinarySearchTree {
 
 	private Node root;
 
@@ -43,4 +43,3 @@ public class BinarySearhTree {
 		return null;
 	}
 }
-
