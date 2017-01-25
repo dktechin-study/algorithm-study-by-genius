@@ -30,8 +30,8 @@ public class LinkedListDemo {
 		System.out.println("--------------------------------------");
 		linkedList.delete(1);
 		linkedList.delete(2);
-		//System.out.println(linkedList.get(0).getName());
-		//System.out.println(linkedList.get(1).getName());
-		System.out.println(linkedList.get(2));
+		System.out.println(linkedList.get(0).getName());
+		System.out.println(linkedList.get(1).getName());
+		//System.out.println(linkedList.get(2));
 	}
 }
