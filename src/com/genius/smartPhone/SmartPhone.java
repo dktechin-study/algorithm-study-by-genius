@@ -10,8 +10,8 @@ public class SmartPhone {
 		Scanner sc = new Scanner(new File(path + "sample.txt"));
 
 		int T = sc.nextInt();
-		int E = sc.nextInt();
 		int F = sc.nextInt();
+		int E = sc.nextInt();
 		int N = sc.nextInt();
 
 		int[] P = new int[N];
@@ -23,5 +23,7 @@ public class SmartPhone {
 			P[i] = a;
 			W[i] = b;
 		}
+
+
 	}
 }
