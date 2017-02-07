@@ -34,7 +34,7 @@ public class SmartPhone {
 
 		S[0] = 0;
 		for (int i = 1; i < E - F + 1; i++) {
-			S[i] = Integer.MAX_VALUE;
+			S[i] = 10000;
 		}
 
 		for (int i = 0; i < N; i++) {
