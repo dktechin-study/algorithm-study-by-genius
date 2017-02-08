@@ -1,5 +1,6 @@
 package com.genius.zigzag;
 
+// 지그재그 숫자 출력하기
 public class ZigZag {
 
 	public static void main(String[] args) {

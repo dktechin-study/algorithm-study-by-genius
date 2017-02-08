@@ -5,6 +5,7 @@ import java.io.FileNotFoundException;
 import java.util.Arrays;
 import java.util.Scanner;
 
+// 세포의 자기 증식 프로젝트
 public class Autosynthesis {
 
 	public static void main(String[] args) throws FileNotFoundException {
