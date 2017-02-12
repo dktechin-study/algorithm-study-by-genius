@@ -11,20 +11,26 @@ import java.util.Scanner;
 public class Disaster {
 
 	static int[][] board;
+	static int m = 0;
+	static int n = 0;
+	static int x = 0;
+	static int f = 0;
+	static int count = 0;
+	static int round = 1;
 
 	public static void main(String[] args) throws FileNotFoundException {
 		String path = Disaster.class.getResource("").getPath();
 		Scanner sc = new Scanner(new File(path + "Disaster.txt"));
 
-		final int m = sc.nextInt();
-		final int n = sc.nextInt();
-		final int x = sc.nextInt();
-
-		boardInit(sc, m, n);
+		m = sc.nextInt();
+		n = sc.nextInt();
+		x = sc.nextInt();
+		f = m * n;
+		boardInit(sc, m, n, x);
 
 	}
 
-	private static void boardInit(Scanner sc, int m, int n) {
+	private static void boardInit(Scanner sc, int m, int n, int x) {
 
 		board = new int[m][n];
 
@@ -37,7 +43,7 @@ public class Disaster {
 
 				if (ch.equals("F")) {
 					//System.out.println("Fire");
-					//board[i][j] = m * n;
+					board[i][j] = m * n;
 				}
 
 				if (ch.equals("Y")) {
@@ -48,7 +54,7 @@ public class Disaster {
 
 				if (ch.equals("E")) {
 					//System.out.println("Emergency");
-					//board[i][j] = -1;
+					board[i][j] = -1;
 				}
 			}
 		}
@@ -57,22 +63,73 @@ public class Disaster {
 
 			Position position = priorityQueue.poll();
 
-			// 상
-			if (position.posY > 0 && 0 == board[position.posY - 1][position.posX]) {
-				board[position.posY - 1][position.posX] = position.dist + 1;
-				priorityQueue.add(new Position(position.posX, position.posY - 1, position.dist + 1));
+			if (round != position.dist) {
+				round = position.dist;
+				if (round > x && (round - 1) % x == 0) {
+					System.out.println("===Fire===");
+					int[][] temp = new int[m][n];
+					for (int i = 0; i < m; i++) {
+						for (int j = 0; j < n; j++) {
+							if (board[i][j] == f) {
+								//상하좌우
+								if (i > 0) temp[i - 1][j] = f;
+								if (i < m - 1) temp[i + 1][j] = f;
+								if (j > 0) temp[i][j - 1] = f;
+								if (j < n - 1) temp[i][j + 1] = f;
+							}
+						}
+					}
+
+					for (int i = 0; i < m; i++) {
+						for (int j = 0; j < n; j++) {
+							if (temp[i][j] == f) board[i][j] = temp[i][j];
+						}
+					}
+				}
 			}
 
-			// 좌
-			if (position.posX < 4 && 0 == board[position.posY][position.posX + 1]) {
-				board[position.posY][position.posX + 1] = position.dist + 1;
-				priorityQueue.add(new Position(position.posX + 1, position.posY, position.dist + 1));
+			int cx = 0;
+			int cy = 0;
+
+			// 상하좌우
+			if (position.posX < m - 1 && 0 >= board[position.posY][position.posX + 1]) {
+				cx = position.posX + 1;
+				cy = position.posY;
+				priorityQueue.add(new Position(cx, cy, position.dist + 1));
+				System.out.println(cy + " " + cx + " " + (position.dist + 1) + " " + " L");
+
 			}
+
+			if (position.posX > 0 && 0 >= board[position.posY][position.posX - 1]) {
+				cx = position.posX - 1;
+				cy = position.posY;
+				priorityQueue.add(new Position(cx, cy, position.dist + 1));
+				System.out.println(cy + " " + cx + " " + (position.dist + 1) + " " + " L");
+			}
+
+			if (position.posY < n - 1 && 0 >= board[position.posY + 1][position.posX]) {
+				cx = position.posX;
+				cy = position.posY + 1;
+				priorityQueue.add(new Position(cx, cy, position.dist + 1));
+				System.out.println(cy + " " + cx + " " + (position.dist + 1) + " " + " D");
+			}
+
+			if (position.posY > 0 && 0 >= board[position.posY - 1][position.posX]) {
+				cx = position.posX;
+				cy = position.posY - 1;
+				priorityQueue.add(new Position(cx, cy, position.dist + 1));
+				System.out.println(cy + " " + cx + " " + (position.dist + 1) + " " + " D");
+			}
+
+			if (board[cy][cx] == -1) {
+				System.out.println("탈출");
+				break;
+			}
+			board[cy][cx] = position.dist + 1;
 		}
-
-		System.out.println(Arrays.deepToString(board));
 	}
 }
+
 
 class Position implements Comparable<Position> {
 
@@ -89,5 +146,10 @@ class Position implements Comparable<Position> {
 	@Override
 	public int compareTo(Position target) {
 		return this.dist > target.dist ? 1 : this.dist < target.dist ? -1 : 0;
+	}
+
+	@Override
+	public String toString() {
+		return posY + " " + posX + " " + dist;
 	}
 }
