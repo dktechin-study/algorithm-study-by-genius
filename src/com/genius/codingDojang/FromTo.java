@@ -1,22 +1,18 @@
 package com.genius.codingDojang;
 
-import java.util.*;
-import java.util.function.Function;
-import java.util.stream.Collectors;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Scanner;
 import java.util.stream.IntStream;
 
-import static java.util.stream.Collectors.toList;
-
 public class FromTo {
-
 
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 
 		ArrayList<Integer> numbers = new ArrayList<>();
-		IntStream.range(sc.nextInt(), sc.nextInt()).forEach(i -> numbers.addAll(Arrays.asList(String.valueOf(i).split("")).stream().map(Integer::valueOf).collect(toList())));
-		Map<Integer, Long> map = numbers.stream().collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
-
-		System.out.println(map);
+		IntStream.range(sc.nextInt(), sc.nextInt()+1).forEach(
+				i -> numbers.add(Arrays.asList(String.valueOf(i).split("")).stream().map(j -> (Integer.valueOf(j))).reduce(1, (a, b) -> a * b)));
+		System.out.println(numbers.stream().mapToInt(Number::intValue).sum());
 	}
 }

@@ -1,7 +1,5 @@
 package com.genius.block;
 
-import com.genius.codingDojang.AmusementPark;
-
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Arrays;
