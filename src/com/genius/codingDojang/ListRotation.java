@@ -19,6 +19,10 @@ public class ListRotation {
 			r++;
 		}
 
-		sss.forEach(i -> System.out.print(i + " "));
+		//sss.forEach(i -> System.out.print(i + " "));
+
+		int[] a = {11, 12, 13, 14};
+		int[] b = {0, 1, 2, 3};
+		System.out.println(a[(a = b)[3]]);
 	}
 }
