@@ -13,22 +13,24 @@ public class MaxSum {
 		int n = sc.nextInt();
 		for (int i = 0; i < n; i++) {
 			int m = sc.nextInt();
-			int sum;
+
 			List<Integer> list = new ArrayList();
+			List<Integer> max = new ArrayList<>();
 
 			for (int j = 0; j < m; j++) {
 				list.add(sc.nextInt());
 			}
 
-			sum = list.stream().reduce((a, b) -> {
-				System.out.printf("a = %d, b = %d \n", a, b);
+			list.stream().reduce((a, b) -> {
 				if (a < 0 || b < 0) {
-					return a > b ? a : b;
+					max.add(a > b ? a : b);
+					return b;
 				}
+				max.add(a + b);
 				return a + b;
 			}).orElse(0);
 
-			System.out.println(sum);
+			System.out.println(max.stream().max(Integer::compareTo).get());
 		}
 	}
 }
