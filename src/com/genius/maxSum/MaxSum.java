@@ -2,9 +2,7 @@ package com.genius.maxSum;
 
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 public class MaxSum {
 
@@ -15,7 +13,7 @@ public class MaxSum {
 			int m = sc.nextInt();
 
 			List<Integer> list = new ArrayList();
-			List<Integer> max = new ArrayList<>();
+			Set<Integer> max = new HashSet<>();
 
 			for (int j = 0; j < m; j++) {
 				list.add(sc.nextInt());
@@ -30,6 +28,7 @@ public class MaxSum {
 				return a + b;
 			}).orElse(0);
 
+			System.out.println(max);
 			System.out.println(max.stream().max(Integer::compareTo).get());
 		}
 	}
