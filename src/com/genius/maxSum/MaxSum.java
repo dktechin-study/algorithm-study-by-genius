@@ -22,13 +22,13 @@ public class MaxSum {
 			list.stream().reduce((a, b) -> {
 				if (a < 0 || b < 0) {
 					max.add(a > b ? a : b);
-					return b;
+					return a + b < b ? b : a + b;
 				}
 				max.add(a + b);
 				return a + b;
 			}).orElse(0);
 
-			System.out.println(max);
+			//System.out.println(max);
 			System.out.println(max.stream().max(Integer::compareTo).get());
 		}
 	}
