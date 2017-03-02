@@ -4,9 +4,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-/**
- * Created by genius on 2017. 3. 1..
- */
 public class Stairs {
 
 	public static void main(String[] args) {
@@ -30,7 +27,6 @@ public class Stairs {
 		}
 		System.out.println(list.toString());
 		//System.out.println(list.stream().mapToInt(Integer::intValue).sum());
-
 
 		Integer[] solutions = new Integer[8];
 		Arrays.fill(solutions, 0);
