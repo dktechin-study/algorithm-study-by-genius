@@ -30,8 +30,10 @@ public class AmusementPark {
 				k = k / 2;
 				d++;
 			}
+			System.out.println(t);
 			if (t.stream().mapToInt(Integer::intValue).sum() == target) {
 				System.out.println(t);
+				break;
 			}
 		}
 	}
