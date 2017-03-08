@@ -4,16 +4,23 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import static java.lang.System.out;
+
 public class FindPrimeNumber {
 
 	public static void main(String[] args) {
 		Long start = new Date().getTime();
-		System.out.println(find1(2, 50000));
-		System.out.println(new Date().getTime() - start);
+		out.println(find1(2, 50000));
+		out.println(new Date().getTime() - start);
 
 		start = new Date().getTime();
-		System.out.println(find2(2, 50000));
-		System.out.println(new Date().getTime() - start);
+		out.println(find2(2, 50000));
+		out.println(new Date().getTime() - start);
+
+		List<Integer> integers = List.of(1, 2, 3, 4);
+		out.println(integers);
+
+		integers.stream().forEach(out::print);
 	}
 
 	public static int find1(int s, int e) {
