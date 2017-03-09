@@ -1,12 +1,7 @@
 package com.genius;
 
-import javax.imageio.ImageReader;
-import java.io.BufferedInputStream;
-import java.io.BufferedOutputStream;
-import java.io.File;
 import java.time.Duration;
 import java.time.Instant;
-import java.util.List;
 import java.util.Optional;
 
 public class Algorithm {
@@ -30,13 +25,5 @@ public class Algorithm {
 		System.out.println(cmd);
 		System.out.println(startTime);
 		System.out.println(cpuUsage);
-
-
-		
-	}
-
-	@Override
-	public void close() throws Exception {
-
 	}
 }

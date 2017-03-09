@@ -23,7 +23,7 @@ public class Fibonacci3 {
 			// s = f - s;
 		}
 
-		System.out.println(f);
+		//System.out.println(f);
 		System.out.println(f.remainder(l));
 	}
 }
