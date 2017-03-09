@@ -1,20 +1,22 @@
 package com.genius.fibonacci;
 
+import java.math.BigDecimal;
+
 public class Fibonacci2 {
 
 	public static void main(String[] args) {
-		for (int i = 0; i < 5; i++) {
-			System.out.println(fibonacci(i));
+		for (int i = 0; i < 10; i++) {
+			System.out.println(fibonacci(BigDecimal.valueOf(i)));
 		}
 	}
 
-	private static int fibonacci(int n) {
-		if (n == 0) {
-			return 0;
+	private static BigDecimal fibonacci(BigDecimal n) {
+		if (n.equals(BigDecimal.ZERO)) {
+			return BigDecimal.ZERO;
 		}
-		if (n == 1) {
-			return 1;
+		if (n.equals(BigDecimal.ONE)) {
+			return BigDecimal.ONE;
 		}
-		return fibonacci(n - 1) * fibonacci(n - 1) + fibonacci(n - 2);
+		return (fibonacci(n.subtract(BigDecimal.ONE)).multiply(fibonacci(n.subtract(BigDecimal.ONE)))).add(fibonacci(n.subtract(BigDecimal.valueOf(2))));
 	}
 }

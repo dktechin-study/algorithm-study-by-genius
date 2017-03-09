@@ -1,7 +1,6 @@
 package com.genius.stairs;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class Stairs {
@@ -26,21 +25,21 @@ public class Stairs {
 			}
 		}
 		System.out.println(list.toString());
-		//System.out.println(list.stream().mapToInt(Integer::intValue).sum());
+		System.out.println(list.stream().mapToInt(Integer::intValue).sum());
 
-		Integer[] solutions = new Integer[8];
-		Arrays.fill(solutions, 0);
-
-		solutions[0] = 0;
-		solutions[1] = stairs[0];
-		solutions[2] = stairs[0] + stairs[1];
-
-		for (int i = 3; i <= n; i++) {
-			solutions[i] = max(stairs[i - 1] + stairs[i - 2] + solutions[i - 3], stairs[i - 1] + solutions[i - 2]);
-			System.out.println(stairs[i-1]);
-		}
-
-		System.out.println(Arrays.toString(solutions));
+//		Integer[] solutions = new Integer[8];
+//		Arrays.fill(solutions, 0);
+//
+//		solutions[0] = 0;
+//		solutions[1] = stairs[0];
+//		solutions[2] = stairs[0] + stairs[1];
+//
+//		for (int i = 3; i <= n; i++) {
+//			solutions[i] = max(stairs[i - 1] + stairs[i - 2] + solutions[i - 3], stairs[i - 1] + solutions[i - 2]);
+//			System.out.println(stairs[i-1]);
+//		}
+//
+//		System.out.println(Arrays.toString(solutions));
 	}
 
 	static Integer max(Integer a, Integer b) {
