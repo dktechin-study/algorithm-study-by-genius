@@ -1,6 +1,7 @@
 package com.genius.codingDojang;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 
@@ -17,7 +18,7 @@ public class FindPrimeNumber {
 		out.println(find2(2, 50000));
 		out.println(new Date().getTime() - start);
 
-		List<Integer> integers = List.of(1, 2, 3, 4);
+		List<Integer> integers = Arrays.asList(new Integer[]{1, 2, 3, 4, 5});
 		out.println(integers);
 
 		integers.stream().forEach(out::print);
