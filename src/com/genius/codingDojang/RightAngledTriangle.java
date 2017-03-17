@@ -8,7 +8,7 @@ import static java.util.stream.Collectors.toList;
 public class RightAngledTriangle {
 
 	public static void main(String[] args) {
-		final int n = 1000;
+		final int n = 1001;
 		final Map<Integer, Set<List<Integer>>> t = new ConcurrentHashMap<>();
 
 		long start = new Date().getTime();
