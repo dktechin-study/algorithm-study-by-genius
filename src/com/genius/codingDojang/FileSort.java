@@ -11,7 +11,7 @@ public class FileSort {
 	public static void main(String[] args) throws FileNotFoundException {
 		String path = FileSort.class.getResource("").getPath();
 		Scanner sc = new Scanner(new File(path + "FileSort.txt"));
-		PrintWriter pw = new PrintWriter(new File("FileSortResult.txt"));
+		PrintWriter pw = new PrintWriter(new File( "FileSortResult.txt"));
 		BitSet bs = new BitSet(10000000);
 
 		while (sc.hasNext()) {
