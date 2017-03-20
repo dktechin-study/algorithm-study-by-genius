@@ -1,7 +1,9 @@
 package com.genius;
 
 import javax.annotation.Nonnull;
+import java.math.BigInteger;
 import java.util.BitSet;
+import java.util.Random;
 
 public class Algorithm {
 	public static void main(String[] args) {
@@ -31,25 +33,29 @@ public class Algorithm {
 		String s = "";
 		nonnull(s);
 
+//
+//		BitSet bits1 = new BitSet(16);
+//		BitSet bits2 = new BitSet(16);
+//
+//
+//		bits1.set(0,3);
+//		bits2.set(2);
+//
+//
+//		System.out.println(bits1);
+//		System.out.println(bits2);
+//
+//		bits1.xor(bits2);
+//
+//		System.out.println(bits1);
+//
+//		bits1.or(bits2);
+//
+//		System.out.println(bits1);
 
-		BitSet bits1 = new BitSet(16);
-		BitSet bits2 = new BitSet(16);
 
-
-		bits1.set(0,3);
-		bits2.set(2);
-
-
-		System.out.println(bits1);
-		System.out.println(bits2);
-
-		bits1.xor(bits2);
-
-		System.out.println(bits1);
-
-		bits1.or(bits2);
-
-		System.out.println(bits1);
+		BigInteger bi = BigInteger.probablePrime(5, new Random(100));
+		System.out.println(bi);
 	}
 
 
