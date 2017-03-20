@@ -1,9 +1,7 @@
 package com.genius;
 
-import java.time.Duration;
-import java.time.Instant;
-import java.util.Arrays;
-import java.util.Optional;
+import javax.annotation.Nonnull;
+import java.util.BitSet;
 
 public class Algorithm {
 	public static void main(String[] args) {
@@ -27,8 +25,35 @@ public class Algorithm {
 //		System.out.println(startTime);
 //		System.out.println(cpuUsage);
 
-		Integer[] d = new Integer[] {0, 1};
-		System.out.println(Arrays.asList(d).stream().allMatch(b -> b == 0));
+		Integer[] d = new Integer[]{0, 1};
+		//System.out.println(Arrays.asList(d).stream().allMatch(b -> b == 0));
 
+		String s = "";
+		nonnull(s);
+
+
+		BitSet bits1 = new BitSet(16);
+		BitSet bits2 = new BitSet(16);
+
+
+		bits1.set(0,3);
+		bits2.set(2);
+
+
+		System.out.println(bits1);
+		System.out.println(bits2);
+
+		bits1.xor(bits2);
+
+		System.out.println(bits1);
+
+		bits1.or(bits2);
+
+		System.out.println(bits1);
+	}
+
+
+	public static String nonnull(@Nonnull String s) {
+		return s;
 	}
 }

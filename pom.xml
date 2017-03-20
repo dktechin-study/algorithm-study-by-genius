@@ -11,14 +11,19 @@
 	<name>algorithm-study-by-genius</name>
 	<description>Algorithm study by Genius</description>
 
-	<!--<dependencies>-->
+	<dependencies>
 		<!--<dependency>-->
 			<!--<groupId>org.projectlombok</groupId>-->
 			<!--<artifactId>lombok</artifactId>-->
 			<!--<version>1.16.4</version>-->
 			<!--<scope>runtime</scope>-->
 		<!--</dependency>-->
-	<!--</dependencies>-->
+		<dependency>
+			<groupId>com.google.code.findbugs</groupId>
+			<artifactId>jsr305</artifactId>
+			<version>3.0.1</version>
+		</dependency>
+	</dependencies>
 
 	<build>
 		<plugins>
