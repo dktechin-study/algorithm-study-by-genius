@@ -1,6 +1,8 @@
 package com.genius.codingDojang;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
 
 import static java.lang.System.in;
 
@@ -8,30 +10,31 @@ public class LightMoreLight {
 
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(in);
-		List<BitSet> l = new ArrayList();
+		List<Long> l = new ArrayList();
 		while (sc.hasNext()) {
-			int i = sc.nextInt();
-			if (i == 0) break;
-			BitSet bs = new BitSet();
-			bs.set(0, i);
-			l.add(bs);
+			Long i = sc.nextLong();
+			if (i == 0L) break;
+			l.add(i);
 		}
 
-		for (int i = 0; i < l.size(); i++) {
-			BitSet bs = l.get(i);
-			int b = bs.length();
-			BitSet bbs = new BitSet(b);
-			for (int j = 1; j <= b; j++) {
-				System.out.println(j + " " + new Date().getTime());
-				for (int k = 1; k <= b; k++) {
-					if (k % j == 0) {
-						bbs.set(k - 1);
-						bs.xor(bbs);
-					}
-				}
-				bbs.clear();
-			}
-			System.out.println(bs.get(b - 1) ? "no" : "yes");
+		for (Long i : l) {
+			System.out.println(solved(i) % 2 == 1 ? "yes" : "no");
 		}
+	}
+
+	private static int solved(Long i) {
+		List<Long> l = new ArrayList();
+		Long len = i;
+		l.add(1L);
+		l.add(i);
+		for (Long j = 2L; j < len; j++) {
+			if (i % j == 0L) {
+				l.add(j);
+				Long x = i / j;
+				if(x != j) l.add(x);
+				len = x - 1;
+			}
+		}
+		return l.size();
 	}
 }

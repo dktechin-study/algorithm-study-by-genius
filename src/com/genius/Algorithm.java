@@ -2,7 +2,6 @@ package com.genius;
 
 import javax.annotation.Nonnull;
 import java.math.BigInteger;
-import java.util.BitSet;
 import java.util.Random;
 
 public class Algorithm {
