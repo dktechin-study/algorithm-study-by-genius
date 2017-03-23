@@ -1,8 +1,8 @@
 package com.genius;
 
 import javax.annotation.Nonnull;
-import java.math.BigInteger;
-import java.util.Random;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class Algorithm {
 	public static void main(String[] args) {
@@ -53,8 +53,18 @@ public class Algorithm {
 //		System.out.println(bits1);
 
 
-		BigInteger bi = BigInteger.probablePrime(5, new Random(100));
-		System.out.println(bi);
+//		BigInteger bi = BigInteger.probablePrime(5, new Random(100));
+//		System.out.println(bi);
+
+
+		//http://gocoding.tistory.com/93
+		//Pattern p = Pattern.compile("^([a-z])(?=.*\\d).{4,16}$");
+		Pattern p = Pattern.compile("^(\\S)(?=.*\\d)(?=.*[!\"#$%&'()*+,-./:;<=>?@\\[\\]^_`{|}~]).{4,16}$");
+		Matcher m = p.matcher("aaaa#dd1>1");
+
+		while (m.find()) {
+			System.out.println(m.group(0));
+		}
 	}
 
 
