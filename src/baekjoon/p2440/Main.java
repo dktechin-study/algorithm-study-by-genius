@@ -1,4 +1,4 @@
-package baekjoon.p2439;
+package baekjoon.p2440;
 
 import java.util.Scanner;
 
@@ -8,10 +8,10 @@ public class Main {
 		int n = sc.nextInt();
 		for (int i = 0; i < n; i++) {
 			for (int j = 0; j < n; j++) {
-				if (n - i - 1 <= j) {
+				if (i <= j) {
 					System.out.print("*");
 				} else {
-					System.out.print(" ");
+					System.out.print("");
 				}
 			}
 			System.out.println();
