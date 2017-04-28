@@ -2,15 +2,18 @@ package codingDojang;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.text.MessageFormat;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
 import java.util.function.Function;
+import java.util.stream.Collector;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class PhoneNumber {
+
+	public static final Collector<String, ?, Map<String, Long>> STRING_MAP_COLLECTOR = Collectors.groupingBy(String::new, Collectors.counting());
 
 	static Map<String, Integer> table = new HashMap<>();
 
@@ -58,10 +61,10 @@ public class PhoneNumber {
 			numbers[i] = sc.next();
 		}
 
-		List l = Stream.of(numbers).map(i -> i.replaceAll("-", "")).map(i -> {
-			return Stream.of(i.split("")).map(getStringStringFunction()).collect(Collectors.joining());
-		}).collect(Collectors.toList());
-		System.out.println(l);
+		Map<String, Long> map = Stream.of(numbers)
+				.map(i -> i.replaceAll("-", ""))
+				.map(i -> MessageFormat.format("{0}{1}{2}-{3}{4}{5}{6}", Stream.of(i.split("")).map(getStringStringFunction()).toArray())).collect(STRING_MAP_COLLECTOR);
+		System.out.println(map);
 	}
 
 	private static Function<String, String> getStringStringFunction() {
