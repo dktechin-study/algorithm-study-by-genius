@@ -51,7 +51,6 @@ public class PhoneNumber {
 		table.put("Y", 9);
 	}
 
-
 	public static void main(String[] args) throws FileNotFoundException {
 		String path = PhoneNumber.class.getResource("").getPath();
 		Scanner sc = new Scanner(new File(path + "PhoneNumber.txt"));
