@@ -11,6 +11,7 @@ public class SameNumber {
 		BigDecimal n = sc.nextBigDecimal();
 		BigDecimal t = n;
 		BigDecimal r = BigDecimal.ZERO;
+
 		while (true) {
 			t = t.divide(BigDecimal.TEN);
 			if (t.compareTo(BigDecimal.ONE) == -1) {
@@ -21,9 +22,11 @@ public class SameNumber {
 
 		BigDecimal a = pow(r);
 		BigDecimal c = n.subtract(a);
+
 		if (c.compareTo(a) == -1 && r.compareTo(BigDecimal.ONE) == 1) {
 			c = n.subtract(a.divide(BigDecimal.TEN));
 		}
+
 		String d = String.valueOf(c);
 		StringBuffer e = new StringBuffer(d.substring(0, d.length() - (c.compareTo(BigDecimal.valueOf(2)) == 1 ? 1 : 0)));
 		System.out.println(d + "" + e.reverse());
