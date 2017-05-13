@@ -2,9 +2,6 @@ package codility;
 
 import java.util.Arrays;
 
-/**
- * Created by genius on 2017. 5. 12..
- */
 public class TapeEquilibrium {
 
 	public static void main(String[] args) {
@@ -15,13 +12,14 @@ public class TapeEquilibrium {
 	}
 
 	public static int solution(int[] A) {
-		int m = Math.abs(Arrays.stream(A).sum());
-		int d = 0;
-		int f = Integer.MAX_VALUE;
+		int right = Arrays.stream(A).sum();
+		int left = 0;
+		int min = Integer.MAX_VALUE;
 		for (int i = 0; i < A.length - 1; i++) {
-			m -= A[i] * 2;
-			if (m < f) f = d;
+			left += A[i];
+			right -= A[i];
+			min = Math.min(Math.abs(right - left), min);
 		}
-		return f;
+		return min;
 	}
 }
