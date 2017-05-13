@@ -19,7 +19,6 @@ public class CountDiv {
 		return B / K - A / K + (A % K == 0 ? 1 : 0);
 	}
 
-
 	public static int solution2(int A, int B, int K) {
 		int count = 0;
 		for (int i = A; i <= B; i++) {
