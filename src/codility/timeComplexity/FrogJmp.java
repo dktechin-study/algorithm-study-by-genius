@@ -1,4 +1,4 @@
-package codility;
+package codility.timeComplexity;
 
 public class FrogJmp {
 

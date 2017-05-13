@@ -1,24 +1,16 @@
 package codility;
 
+import java.util.Comparator;
+import java.util.stream.Stream;
+
 public class BinaryGap {
 
 	public static void main(String[] args) {
-		System.out.println(solution(328));
+		System.out.println(solution(1610612737));
 	}
 
 	public static int solution(int N) {
-		String[] arr = Integer.toBinaryString(N).split("");
-		int len = arr.length;
-		int temp = 0;
-		int max = 0;
-		for (int i = 0; i < len; i++) {
-			if (arr[i].equals("0")) {
-				temp++;
-				if (temp > max) max = temp;
-			} else {
-				temp = 0;
-			}
-		}
-		return max;
+		return Stream.of(Integer.toBinaryString(N).replaceAll("0+$", "").split("1+")).filter(a -> a != null).max(Comparator.comparing(String::length))
+				.map(String::length).orElse(0);
 	}
 }
