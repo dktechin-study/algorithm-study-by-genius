@@ -1,22 +1,38 @@
 package codingDojang;
 
-import java.text.NumberFormat;
+import java.util.Scanner;
 
 public class EuclidProblem {
 
 	public static void main(String[] args) {
-		System.out.println(gcd(6, 4));
+		Scanner sc = new Scanner(System.in);
+		solve(sc.nextInt(), sc.nextInt());
+	}
 
-		double aa  = 0.1233343;
-		double bb  = 1;
-		NumberFormat defaultFormat =  NumberFormat.getPercentInstance();
-		defaultFormat.setMinimumFractionDigits(2);
-		System.out.println(defaultFormat.format(aa));
-		System.out.println(defaultFormat.format(bb));
+	private static void solve(int n, int m) {
+		int a, b;
+
+		if (n > m) {
+			a = m;
+			b = n;
+		} else {
+			a = n;
+			b = m;
+		}
+
+		int c = gcd(b, a);
+		int y = 0;
+		while (true) {
+			if ((1 - (b / c) * y) % (a / c) == 0) {
+				System.out.println(((c - (y * b)) / a) + " " + y + " " + c);
+				break;
+			}
+			y++;
+		}
 	}
 
 	private static int gcd(int a, int b) {
-		int c = a % b;
+		int c = a > b ? a % b : b % a;
 		return c == 0 ? b : gcd(b, c);
 	}
 }
