@@ -2,6 +2,7 @@ package com.genius;
 
 import javax.annotation.Nonnull;
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
@@ -76,5 +77,11 @@ public class Algorithm {
 
 	public static String nonnull(@Nonnull String s) {
 		return s;
+	}
+
+
+	private static int solution3(String S) {
+		//return Arrays.stream(S.split("[0-9]+")).filter(s -> s.matches(".*[A-Z].*")).max(Comparator.comparing(String::length)).map(String::length).orElse(-1);
+		return Arrays.stream(S.split("[0-9]+")).filter(s -> s.matches(".*[A-Z].*")).map(String::length).max(Comparator.comparing(Integer::valueOf)).orElse(-1);
 	}
 }
